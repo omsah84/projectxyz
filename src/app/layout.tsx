@@ -4,6 +4,9 @@ import ThemeWrapper from "./ThemeWrapper"; // Import your client component
 import Head from "next/head"; // Import Head for setting metadata
 import "@/styles/globals.css"; // Global styles
 
+import TopBar from "@/components/TopBar";
+import AppBarComponent from "@/components/AppBarComponent";
+
 export const metadata: Metadata = {
   title: "Project - Home",
   description:
@@ -51,8 +54,30 @@ export default function RootLayout({
 
         {/* Robots Meta Tag */}
         <meta name="robots" content="index, follow" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Your Company Name",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "SY NO-101&156/2, Niladri, D Thogur",
+              addressLocality: "Bangalore",
+              addressRegion: "Karnataka",
+              postalCode: "560100",
+              addressCountry: "India",
+            },
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+917975230478",
+              contactType: "Customer Service",
+            },
+          })}
+        </script>
       </Head>
       <body>
+        <TopBar />
+        <AppBarComponent/>
         <ThemeWrapper>{children}</ThemeWrapper>
       </body>
     </html>
