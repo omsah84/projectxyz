@@ -15,9 +15,11 @@ const FaqsContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const FaqsHeading = styled(Typography)({
+const FaqsHeading = styled(Typography)(({ theme }) => ({
   marginBottom: "20px",
-});
+  fontSize: theme.typography.h4.fontSize, // Ensure font size matches h4
+  fontWeight: theme.typography.h4.fontWeight, // Ensure font weight matches h4
+}));
 
 const FaqsSection: React.FC = () => {
   const [showMore, setShowMore] = useState(false);
@@ -81,7 +83,6 @@ const FaqsSection: React.FC = () => {
       answer: "Each course comes with various resources, including video lectures, downloadable materials, quizzes, and access to a community forum for discussions and networking with fellow learners.",
     },
   ];
-
   // Function to handle showing more FAQs
   const handleShowMore = () => {
     setShowMore(!showMore);
@@ -89,7 +90,7 @@ const FaqsSection: React.FC = () => {
 
   return (
     <FaqsContainer>
-      <FaqsHeading variant="h4" component="h2">
+      <FaqsHeading>
         Frequently Asked Questions
       </FaqsHeading>
       {faqsData.slice(0, showMore ? faqsData.length : 5).map((faq, index) => (
