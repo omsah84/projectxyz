@@ -22,10 +22,10 @@ const ContactContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const ContactHeading = styled(Typography)(({ theme }) => ({
+const ContactHeading = styled(Typography)({
   marginBottom: "20px",
   textAlign: "center",
-}));
+});
 
 const ContactForm = styled(Paper)(({ theme }) => ({
   padding: "20px",
@@ -35,7 +35,7 @@ const ContactForm = styled(Paper)(({ theme }) => ({
   boxShadow: theme.shadows[3],
 }));
 
-const MapContainer = styled(Box)(({ theme }) => ({
+const MapContainer = styled(Box)({
   position: "relative",
   width: "100%",
   height: "300px", // Set a height for the map
@@ -50,7 +50,7 @@ const MapContainer = styled(Box)(({ theme }) => ({
     height: "100%",
     border: 0,
   },
-}));
+});
 
 const ContactSection: React.FC = () => {
   const handleSubmit = (event: React.FormEvent) => {
