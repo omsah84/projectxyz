@@ -4,8 +4,8 @@ import ThemeWrapper from "./ThemeWrapper"; // Import your client component
 import Head from "next/head"; // Import Head for setting metadata
 import "@/styles/globals.css"; // Global styles
 
-import TopBar from "@/components/TopBar";
-import AppBarComponent from "@/components/AppBarComponent";
+import TopBarComponent from "@/root_components/TopBarComponent";
+import AppBarComponent from "@/root_components/AppBarComponent";
 
 export const metadata: Metadata = {
   title: "Project - Home",
@@ -76,7 +76,7 @@ export default function RootLayout({
         </script>
       </Head>
       <body>
-        <TopBar />
+        <TopBarComponent />
         <AppBarComponent/>
         <ThemeWrapper>{children}</ThemeWrapper>
       </body>

@@ -39,7 +39,7 @@ const StyledLink = styled(Link)<{ textcolor: string }>(({ textcolor }) => ({
   cursor: "pointer",
 }));
 
-const TopBar: React.FC<TopBarProps> = ({
+const TopBarComponent: React.FC<TopBarProps> = ({
   backgroundColor = "black", // Default background color
   textColor = "white",       // Default text color
   gap = "15px",              // Default gap between items
@@ -92,4 +92,4 @@ const TopBar: React.FC<TopBarProps> = ({
   );
 };
 
-export default TopBar;
+export default TopBarComponent;
