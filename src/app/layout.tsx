@@ -4,8 +4,8 @@ import ThemeWrapper from "./ThemeWrapper"; // Import your client component
 import Head from "next/head"; // Import Head for setting metadata
 import "@/styles/globals.css"; // Global styles
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 import TopBarComponent from "@/root_components/TopBarComponent";
 import AppBarComponent from "@/root_components/AppBarComponent";

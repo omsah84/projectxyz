@@ -28,20 +28,20 @@ const FooterLink = styled(Link)( {
   },
 });
 
-const SocialMediaIcons = styled(Box)( {
-  display: "flex",
-  gap: "10px",
-  marginTop: "15px",
-});
+// const SocialMediaIcons = styled(Box)( {
+//   display: "flex",
+//   gap: "10px",
+//   marginTop: "15px",
+// });
 
-const SocialIcon = styled("img")( {
-  width: "40px",
-  height: "40px",
-  cursor: "pointer",
-  "&:hover": {
-    opacity: 0.7,
-  },
-});
+// const SocialIcon = styled("img")( {
+//   width: "40px",
+//   height: "40px",
+//   cursor: "pointer",
+//   "&:hover": {
+//     opacity: 0.7,
+//   },
+// });
 
 const FooterComponent: React.FC = () => {
   return (
@@ -60,12 +60,12 @@ const FooterComponent: React.FC = () => {
             <Typography>Phone: +91 760 741 8817</Typography>
             <Typography>Email: support@researchhub.com</Typography>
 
-            <SocialMediaIcons>
+            {/* <SocialMediaIcons>
               <SocialIcon src="/icons/facebook.svg" alt="Facebook" />
               <SocialIcon src="/icons/instagram.svg" alt="Instagram" />
               <SocialIcon src="/icons/twitter.svg" alt="Twitter" />
               <SocialIcon src="/icons/telegram.svg" alt="Telegram" />
-            </SocialMediaIcons>
+            </SocialMediaIcons> */}
           </FooterColumn>
         </Grid>
 
