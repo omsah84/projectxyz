@@ -5,85 +5,130 @@
 
 /* Universal Selector */
 * {
-  box-sizing: border-box; /* Set box-sizing for all elements */
-  margin: 0; /* Remove default margins */
-  padding: 0; /* Remove default padding */
+  box-sizing: border-box;
+  /* Set box-sizing for all elements */
+  margin    : 0;
+  /* Remove default margins */
+  padding   : 0;
+  /* Remove default padding */
 }
 
 /* Root Styles */
 :root {
-  --primary-color: #007bff; /* Define a custom primary color */
-  --secondary-color: #6c757d; /* Define a custom secondary color */
-  --background-color: #f5f5f5; /* Define a custom background color */
-  --text-color: #333; /* Define a custom text color */
-  --font-family: 'Roboto', sans-serif; /* Define a custom font family */
+  --primary-color   : #007bff;
+  /* Define a custom primary color */
+  --secondary-color : #6c757d;
+  /* Define a custom secondary color */
+  --background-color: #f5f5f5;
+  /* Define a custom background color */
+  --text-color      : #333;
+  /* Define a custom text color */
+  --font-family     : 'Roboto', sans-serif;
+  /* Define a custom font family */
 }
 
 /* Global Styles */
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: var(--font-family); /* Use the custom font family */
-  background-color: var(--background-color); /* Use the custom background color */
-  color: var(--text-color); /* Use the custom text color */
-  -webkit-font-smoothing: antialiased; /* Smooth text on WebKit browsers */
-  -moz-osx-font-smoothing: grayscale; /* Smooth text on Firefox */
+  margin                 : 0;
+  padding                : 0;
+  box-sizing             : border-box;
+  font-family            : var(--font-family);
+  /* Use the custom font family */
+  background-color       : var(--background-color);
+  /* Use the custom background color */
+  color                  : var(--text-color);
+  /* Use the custom text color */
+  -webkit-font-smoothing : antialiased;
+  /* Smooth text on WebKit browsers */
+  -moz-osx-font-smoothing: grayscale;
+  /* Smooth text on Firefox */
 }
 
 /* Custom styles for headings */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600; /* Medium font weight for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  /* Medium font weight for headings */
 }
 
 Section {
-  padding: 30px 100px; /* Example of global section style */
+  padding: 30px 100px;
+  /* Example of global section style */
 }
 
 /* Links */
 a {
-  color: var(--primary-color); /* Use the primary color for links */
-  text-decoration: none; /* Remove underline */
+  color          : var(--primary-color);
+  /* Use the primary color for links */
+  text-decoration: none;
+  /* Remove underline */
 }
 
 a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
+  /* Underline on hover */
 }
 
 /* Add responsive font sizing */
 html {
-  font-size: 100%; /* Base font size */
+  font-size: 100%;
+  /* Base font size */
 }
 
 @media (max-width: 600px) {
   html {
-    font-size: 90%; /* Adjust base font size on small screens */
+    font-size: 90%;
+    /* Adjust base font size on small screens */
   }
 
   Section {
-    padding: 30px 5px; /* Example of global section style */
+    padding: 30px 5px;
+    /* Example of global section style */
+  }
+}
+
+@media (max-width: 1000px) {
+
+  Section {
+    padding: 30px 20px;
+    /* Example of global section style */
   }
 }
 
 /* Ensure accessibility for users with different vision */
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2; /* Increase line height for readability */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  /* Increase line height for readability */
 }
 
 p {
-  line-height: 1.5; /* Increase line height for readability */
+  line-height: 1.5;
+  /* Increase line height for readability */
 }
 
 /* Responsive images */
 img {
-  max-width: 100%; /* Ensure images are responsive */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
+  /* Ensure images are responsive */
+  height   : auto;
+  /* Maintain aspect ratio */
 }
 
 /* Add support for older browsers */
 @supports not (display: grid) {
+
   /* Fallback styles for older browsers */
   .container {
-    display: block; /* Fallback to block layout */
+    display: block;
+    /* Fallback to block layout */
   }
 }
