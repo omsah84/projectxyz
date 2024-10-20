@@ -7,9 +7,9 @@ import "@/styles/globals.css"; // Global styles
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
-import TopBarComponent from "@/common_components/TopBarComponent";
-import AppBarComponent from "@/common_components/AppBarComponent";
-import FooterComponent from "@/common_components/FooterComponent";
+import TopBarComponent from "@/root_components/TopBarComponent";
+import AppBarComponent from "@/root_components/AppBarComponent";
+import FooterComponent from "@/root_components/FooterComponent";
 
 export const metadata: Metadata = {
   title: "Project - Home",

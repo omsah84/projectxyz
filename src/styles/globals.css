@@ -127,6 +127,10 @@ img {
   margin-bottom: 20px;
 }
 
+.css-hfwne4 {
+  padding: 17px;
+}
+
 /* Add support for older browsers */
 @supports not (display: grid) {
 
