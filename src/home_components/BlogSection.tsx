@@ -37,7 +37,7 @@ const blogPosts = [
 const BlogSection = () => {
   return (
     <section className={useStyles.section}>
-      <Typography variant="h4" component="h2" className={useStyles.heading}>
+      <Typography variant="h4" component="h2" className={useStyles.heading} sx={{textAlign:"center"}}>
         Recent Blog Posts
       </Typography>
       <Grid container spacing={4} justifyContent="center" sx={{padding:"20px"}}>

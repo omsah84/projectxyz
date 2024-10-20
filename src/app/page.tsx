@@ -2,7 +2,6 @@
 import AboutSection from "@/home_components/AboutSection";
 import AwardsSection from "@/home_components/AwardsSection";
 import BlogSection from "@/home_components/BlogSection";
-import ContactSection from "@/home_components/ContactSection";
 import CTASection from "@/home_components/CTASection";
 import FaqsSection from "@/home_components/FaqsSection";
 import FeaturesSection from "@/home_components/FeaturesSection";
@@ -20,14 +19,13 @@ export default function Home() {
       <FeaturesSection />
       <TestimonialsSection />
       <PortfolioSection />
-      <CTASection />
       <BlogSection />
       <AboutSection />
       <StatisticsSection />
       <NewsletterSection />
       <AwardsSection />
-      <ContactSection />
       <FaqsSection />
+      <CTASection />
     </div>
   );
 }

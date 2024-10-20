@@ -1,26 +1,51 @@
 import React from 'react';
 import { Button, Typography, Grid } from '@mui/material';
-// import { styled } from '@mui/system';
 
 // Tailwind CSS styling
 const useStyles = {
-  section: 'py-16 px-4 bg-indigo-600 text-white text-center',
+  section: 'py-16 px-4 bg-indigo-400 text-white text-center',
   button: 'mt-8 bg-white text-indigo-600 hover:bg-gray-100',
-  heading: 'text-3xl font-bold mb-4',
-  subheading: 'text-lg mb-6',
 };
 
 const CTASection = () => {
   return (
-    <section className={useStyles.section} >
-      <Grid container gap={1} justifyContent="center" alignItems="center" direction="column" >
-        <Typography variant="h3" component="h2" className={useStyles.heading}>
+    <section className={useStyles.section}>
+      <Grid 
+        container 
+        gap={1} 
+        justifyContent="center" 
+        alignItems="center" 
+        direction="column"
+        sx={{ padding: "10px 10px", textAlign: 'center' }}
+      >
+        <Typography
+          variant="h3"
+          component="h3"
+          sx={{
+            fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3rem' }, // Responsive font size
+            fontWeight: 'bold',
+          }}
+        >
           Ready to Start Your Project?
         </Typography>
-        <Typography variant="body1" className={useStyles.subheading}>
+        <Typography
+          variant="body1"
+          sx={{
+            fontSize: { xs: '1rem', sm: '1.125rem' }, // Smaller font size for small screens
+            marginBottom: '20px',
+          }}
+        >
           Get in touch with us today and let&apos;s build something amazing together.
         </Typography>
-        <Button variant="contained" className={useStyles.button} href="/contact">
+        <Button
+          variant="contained"
+          className={useStyles.button}
+          href="/contact"
+          sx={{
+            padding: '10px 24px',
+            fontSize: { xs: '0.875rem', sm: '1rem' }, // Button text size responsiveness
+          }}
+        >
           Contact Us Now
         </Button>
       </Grid>
