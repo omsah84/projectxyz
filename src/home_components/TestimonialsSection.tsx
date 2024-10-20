@@ -42,7 +42,7 @@ const TestimonialsSection = () => {
               <Avatar src={testimonial.avatarUrl} alt={testimonial.name} className={useStyles.avatar} />
               <CardContent className="text-center">
                 <Typography variant="body1" component="p" className="italic text-gray-600 mb-4">
-                  "{testimonial.review}"
+                &#34; {testimonial.review}&#34;
                 </Typography>
                 <Typography variant="h6" component="h3" className="font-semibold text-gray-700">
                   {testimonial.name}
