@@ -16,13 +16,13 @@ export default function Home() {
     <div>
       {/* <Header/> */}
       <HeroSectionComponent />
+      <NewsletterSection />
       <FeaturesSection />
       <TestimonialsSection />
       <PortfolioSection />
       <BlogSection />
       <AboutSection />
       <StatisticsSection />
-      <NewsletterSection />
       <AwardsSection />
       <FaqsSection />
       <CTASection />
