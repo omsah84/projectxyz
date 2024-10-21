@@ -1,18 +1,18 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Card, CardContent, Typography, Grid, Button, Box } from '@mui/material';
 import { styled } from '@mui/system';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer'; // Importing useInView
+import { useInView } from 'react-intersection-observer';
 
-// Custom styling using Tailwind CSS
+// Tailwind-like utility for styling
 const useStyles = {
-  section: 'py-16 px-4 bg-gray-100 text-center',
-  cardContainer: 'max-w-sm mx-auto transform transition-transform duration-300 hover:scale-105 hover:shadow-xl',
+  section: 'py-12 px-4 bg-gray-100',
+  cardContainer: 'transform transition-transform duration-300 hover:scale-105 hover:shadow-lg',
   gridItem: 'w-full p-4',
 };
 
-// Example Icons (you can use icons from @mui/icons-material or any SVGs)
+// Icon styling (you can replace with @mui/icons-material icons or any SVGs)
 const ServiceIcon = styled('div')({
   backgroundColor: '#3f51b5',
   color: 'white',
@@ -29,24 +29,33 @@ const ServiceIcon = styled('div')({
 
 const features = [
   { title: 'Web Development', description: 'Build modern web applications using the latest technologies.' },
-  { title: 'Mobile App Development', description: 'Develop highly performant mobile applications for Android and iOS.' },
+  { title: 'Mobile App Development', description: 'Develop performant mobile applications for Android and iOS.' },
   { title: 'Content Writing', description: 'Deliver engaging content for websites, blogs, and social media.' },
   { title: 'API Development', description: 'Create secure and scalable APIs for your applications.' },
-  { title: 'UI/UX Design', description: 'Design intuitive and user-friendly interfaces for your applications.' },
-  { title: 'SEO Optimization', description: 'Enhance your online visibility with our SEO services.' },
-  { title: 'Cloud Integration', description: 'Integrate cloud solutions into your business to boost efficiency.' },
-  { title: 'Research Paper Writing', description: 'Get expert research paper writing services tailored to your needs.' }
+  { title: 'UI/UX Design', description: 'Design intuitive and user-friendly interfaces.' },
+  { title: 'SEO Optimization', description: 'Enhance your online visibility with SEO services.' },
+  { title: 'Cloud Integration', description: 'Integrate cloud solutions to boost efficiency.' },
+  { title: 'Research Paper Writing', description: 'Get expert research paper writing services.' },
 ];
 
 const FeaturesSection = () => {
   return (
     <section className={useStyles.section}>
-      <Typography variant="h4" component="h2" className="mb-8 font-bold text-gray-800" sx={{ textAlign: "center" }}>
+      <Typography
+        variant="h4"
+        component="h2"
+        sx={{
+          textAlign: 'center',
+          marginBottom: '20px',
+          fontWeight: 'bold',
+          fontSize: { xs: '1.8rem', md: '2.5rem' }, // Responsive title font
+        }}
+      >
         Our Services
       </Typography>
-      <Grid container spacing={4} className="flex justify-center" sx={{ padding: "20px" }}>
+      <Grid container spacing={4} justifyContent="center">
         {features.map((feature, index) => (
-          <Grid item xs={12} sm={6} md={3} className={useStyles.gridItem} key={index}>
+          <Grid item xs={12} sm={6} md={3} key={index}>
             <AnimatedOfferingCard
               title={feature.title}
               description={feature.description}
@@ -56,14 +65,16 @@ const FeaturesSection = () => {
       </Grid>
 
       {/* Centering the Button */}
-      <Box sx={{ textAlign: 'center', mt: 1 }}>
+      <Box sx={{ textAlign: 'center', marginTop: '30px' }}>
         <Button
           variant="contained"
           color="primary"
           href="/services"
           sx={{
             transition: 'transform 0.3s ease-in-out',
-            '&:hover': { transform: 'scale(1.1)' },
+            '&:hover': { transform: 'scale(1.05)' },
+            fontSize: { xs: '0.875rem', md: '1rem' }, // Responsive button font
+            padding: { xs: '8px 16px', md: '10px 20px' },
           }}
         >
           See More Services
@@ -73,58 +84,52 @@ const FeaturesSection = () => {
   );
 };
 
-// Define the props interface
 interface AnimatedOfferingCardProps {
   title: string;
   description: string;
 }
 
 const AnimatedOfferingCard: React.FC<AnimatedOfferingCardProps> = ({ title, description }) => {
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
-
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    if (scrollY > lastScrollY) {
-      setScrollDirection('down'); // Scrolling down
-    } else {
-      setScrollDirection('up'); // Scrolling up
-    }
-    setLastScrollY(scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
-
   const { ref, inView } = useInView({
-    threshold: 0.1, // Trigger animation when 10% of the card is visible
-    triggerOnce: false, // Animate every time the card comes into view
+    threshold: 0.2, // Trigger animation when 20% of the card is visible
+    triggerOnce: true, // Animate only the first time it comes into view
   });
 
-  // Define animation variants for the scroll effect
   const variants = {
-    hidden: { opacity: 0, y: scrollDirection === 'down' ? 30 : -30 }, // Scroll down hides the card below
-    visible: { opacity: 1, y: 0 }, // Final state (visible)
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
     <motion.div
-      ref={ref} // Attach the ref to the motion.div
+      ref={ref}
       variants={variants}
       initial="hidden"
-      animate={inView ? "visible" : "hidden"} // Animate based on visibility
-      transition={{ duration: 0.5 }}
+      animate={inView ? 'visible' : 'hidden'}
+      transition={{ duration: 0.6 }}
       className={useStyles.cardContainer}
     >
-      <Card elevation={3}>
-        <ServiceIcon>{/* You can use an icon component here */}🚀</ServiceIcon>
+      <Card elevation={3} sx={{ padding: '20px' }}>
+        <ServiceIcon>🚀</ServiceIcon>
         <CardContent sx={{ textAlign: 'center' }}>
-          <Typography variant="h6" component="h3" className="font-semibold text-gray-700">
+          <Typography
+            variant="h6"
+            component="h3"
+            sx={{
+              fontSize: { xs: '1rem', md: '1.25rem' }, // Responsive title font
+              fontWeight: 'bold',
+            }}
+          >
             {title}
           </Typography>
-          <Typography variant="body2" component="p" className="text-gray-600">
+          <Typography
+            variant="body2"
+            component="p"
+            sx={{
+              fontSize: { xs: '0.85rem', md: '1rem' }, // Responsive description font
+              marginTop: '10px',
+            }}
+          >
             {description}
           </Typography>
         </CardContent>
