@@ -46,7 +46,7 @@ const NewsletterSection = () => {
       <Typography 
         variant="body1" 
         className={useStyles.subheading} 
-        sx={{ textAlign: 'center', marginBottom: { xs: 1, md: 2 } }}
+        sx={{ textAlign: 'center', marginBottom: { xs: 2, md: 2 } }}
       >
         Stay updated with our latest news and offerings!
       </Typography>
@@ -73,7 +73,7 @@ const NewsletterSection = () => {
             height: { xs: '48px', sm: '56px' },
             borderRadius: { xs: '4px', sm: '4px 0 0 4px' },
             width: { xs: '100%', sm: 'auto', lg: '80%' },
-            marginBottom: { xs: 2, sm: 0 },
+            marginBottom: { xs: 3, sm: 0 },
           }}
         />
         <Button

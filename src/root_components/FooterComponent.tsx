@@ -4,7 +4,7 @@ import { Box, Typography, styled, Grid, Link } from "@mui/material";
 
 const FooterContainer = styled(Box)({
   backgroundColor: "#f5f5f5",
-  padding: "20px 40px",
+  padding: "30px 40px",
   borderTop: "1px solid #e0e0e0",
 });
 
@@ -27,6 +27,7 @@ const FooterText = styled(Typography)(({ theme }) => ({
   },
   [theme.breakpoints.down("sm")]: {
     fontSize: "0.875rem", // Smaller font size for mobile
+    lineHeight: "1.4", // Increase line height for better readability
   },
 }));
 
@@ -43,7 +44,7 @@ const FooterLink = styled(Link)(({ theme }) => ({
     fontSize: "1.1rem", // Larger font for large screens
   },
   [theme.breakpoints.down("sm")]: {
-    fontSize: "0.875rem", // Smaller font size for mobile
+    fontSize: "0.9rem", // Smaller font size for mobile
   },
 }));
 
@@ -115,12 +116,13 @@ const FooterComponent: React.FC = () => {
         </Grid>
       </Grid>
 
-      <Box mt={1} textAlign="center">
+      <Box mt={3} textAlign="center">
         <Typography
           variant="body2"
           color="textSecondary"
           sx={{
-            fontSize: { xs: "0.75rem", sm: "0.875rem", lg: "1rem" },
+            fontSize: { xs: "0.75rem", sm: "0.875rem", lg: "1rem" }, // Responsive font size for copyright
+            lineHeight: { xs: "1.2", sm: "1.4" }, // Adjust line height for small screens
           }}
         >
           © 2019-2024 All Rights Reserved. Research Hub
