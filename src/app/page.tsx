@@ -10,6 +10,8 @@ import NewsletterSection from "@/home_components/NewsletterSection";
 import PortfolioSection from "@/home_components/PortfolioSection";
 import StatisticsSection from "@/home_components/StatisticsSection";
 import TestimonialsSection from "@/home_components/TestimonialsSection";
+import FloatingButtons from "@/root_components/FloatingButtons";
+import FloatingChatbotButton from "@/root_components/FloatingChatbotButton";
 
 export default function Home() {
   return (
@@ -26,6 +28,10 @@ export default function Home() {
       <AwardsSection />
       <CTASection />
       <FaqsSection />
+
+
+      <FloatingButtons/>
+      <FloatingChatbotButton/>
     </div>
   );
 }

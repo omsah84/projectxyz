@@ -11,6 +11,7 @@ import TopBarComponent from "@/root_components/TopBarComponent";
 import AppBarComponent from "@/root_components/AppBarComponent";
 import FooterComponent from "@/root_components/FooterComponent";
 
+
 export const metadata: Metadata = {
   title: "Project - Home",
   description:
@@ -83,6 +84,7 @@ export default function RootLayout({
         <TopBarComponent />
         <AppBarComponent/>
         <ThemeWrapper>{children}</ThemeWrapper>
+     
         <FooterComponent/>
       </body>
     </html>
