@@ -1,9 +1,10 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, Typography, Grid, Button } from '@mui/material';
+import { Card, CardMedia, CardContent, Typography, Grid, Button, Box } from '@mui/material';
 
-// Tailwind CSS for styling
+// Tailwind-like utility for styling
 const useStyles = {
-  section: 'py-16 px-4 bg-gray-50 text-center',
+  section: 'py-12 px-4 bg-gray-100',
+  cardContainer: 'transform transition-transform duration-300 hover:scale-105 hover:shadow-lg',
   gridItem: 'w-full p-4',
   button: 'mt-4 text-white hover:bg-indigo-500', // Hover effect for the button
 };
@@ -28,7 +29,6 @@ const portfolioItems = [
     imageUrl: '/images/research_development_hero.jpg',
     link: '#',
   },
- 
   {
     title: 'Freelancing Development',
     description: 'A platform for freelancing services, including development, design, and content creation.',
@@ -47,7 +47,6 @@ const portfolioItems = [
     imageUrl: '/images/research_development_hero.jpg',
     link: '#',
   },
-
   {
     title: 'Interior Design Website',
     description: 'A sleek website showcasing modern interior design ideas and portfolio.',
@@ -65,24 +64,30 @@ const portfolioItems = [
 const PortfolioSection = () => {
   return (
     <section className={useStyles.section}>
-      <Typography variant="h4" component="h2" className="mb-8 font-bold text-gray-800" sx={{ textAlign: 'center' }}>
+      <Typography
+        variant="h4"
+        component="h2"
+        sx={{
+          textAlign: 'center',
+          marginBottom: '20px',
+          fontWeight: 'bold',
+          fontSize: { xs: '1.8rem', md: '2.5rem' }, // Responsive title font
+        }}
+      >
         Our Work
       </Typography>
-      <Grid container spacing={4} className="flex justify-center" sx={{ padding: '20px' }}>
+      <Grid container spacing={4} justifyContent="center">
         {portfolioItems.map((item, index) => (
-          <Grid item xs={12} sm={6} md={3} className={useStyles.gridItem} key={index}>
+          <Grid item xs={12} sm={6} md={3} key={index}>
             <Card
               elevation={3}
               sx={{
-                backgroundColor: 'white',
-                padding: '16px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Added transition for hover effect
+                padding: '10px',
+                height: { xs: 350, md: 400 },
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 '&:hover': {
-                  transform: 'scale(1.05)', // Scale effect on hover
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)', // Shadow effect on hover
+                  transform: 'scale(1.05)',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
                 },
               }}
             >
@@ -92,52 +97,70 @@ const PortfolioSection = () => {
                   component="img"
                   alt={item.title}
                   image={item.imageUrl}
-                  sx={{ height: 150, width: 'auto', maxWidth: '100%', margin: '0 auto' }} // Center and resize the image
+                  sx={{
+                    height: { xs: 170, md: 150 },
+                    width: 'auto',
+                    maxWidth: '100%',
+                    margin: '0 auto',
+                  }}
                 />
               </div>
-              <CardContent className="text-center">
+              <CardContent sx={{ textAlign: 'center' }}>
                 <Typography
                   variant="h6"
                   component="h3"
-                  className="font-semibold text-gray-700"
-                  sx={{ textAlign: 'center' }} // Center align text
+                  sx={{
+                    fontSize: { xs: '1rem', md: '1.25rem' }, // Responsive title font
+                    fontWeight: 'bold',
+                  }}
                 >
                   {item.title}
                 </Typography>
                 <Typography
                   variant="body2"
                   component="p"
-                  className="text-gray-600 mb-4"
-                  sx={{ textAlign: 'center' }} // Center align text
+                  sx={{
+                    fontSize: { xs: '0.85rem', md: '1rem' }, // Responsive description font
+                    marginTop: '10px',
+                  }}
                 >
                   {item.description}
                 </Typography>
-                <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                <Box sx={{ textAlign: 'center', marginTop: '15px' }}>
                   <Button
                     href={item.link}
                     variant="outlined"
                     className={useStyles.button}
-                    sx={{ width: 'fit-content', margin: '0 auto' }} // Fit button width to content and center it
+                    sx={{
+                      fontSize: { xs: '0.75rem', md: '1rem' },
+                      padding: { xs: '6px 12px', md: '8px 16px' },
+                    }}
                   >
                     View Case Study
                   </Button>
-                </div>
+                </Box>
               </CardContent>
             </Card>
           </Grid>
         ))}
       </Grid>
-      {/* See More Button */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '.5rem' }}>
+
+      {/* Centering the Button for More Works */}
+      <Box sx={{ textAlign: 'center', marginTop: '30px' }}>
         <Button
           variant="contained"
+          color="primary"
           href="/services"
-          className={useStyles.button}
-          sx={{ width: 'fit-content' }} // Button width fits content
+          sx={{
+            transition: 'transform 0.3s ease-in-out',
+            '&:hover': { transform: 'scale(1.05)' },
+            fontSize: { xs: '0.875rem', md: '1rem' }, // Responsive button font
+            padding: { xs: '8px 16px', md: '10px 20px' },
+          }}
         >
           See More Works
         </Button>
-      </div>
+      </Box>
     </section>
   );
 };

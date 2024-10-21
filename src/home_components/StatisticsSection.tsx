@@ -48,7 +48,7 @@ const StatisticsSection = () => {
         variant="h4"
         component="h2"
         className={useStyles.heading}
-        sx={{ textAlign: 'center', marginBottom: { xs: 1, md: 2 }, fontSize: { xs: '2rem', md: '2.5rem' } }}
+        sx={{ textAlign: 'center', marginBottom: { xs: 1, md: 2 }, fontSize: { xs: '1.5rem',sm:'2rem', md: '2.5rem' }, fontWeight:"bold" }}
       >
         Our Achievements in Numbers
       </Typography>

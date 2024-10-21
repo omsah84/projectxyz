@@ -16,14 +16,15 @@ const CTASection = () => {
         justifyContent="center" 
         alignItems="center" 
         direction="column"
-        sx={{ padding: "10px 10px", textAlign: 'center' }}
+        sx={{ padding: { xs: '10px', sm: '10px' }, textAlign: 'center' }} // Increased padding for small screens
       >
         <Typography
           variant="h3"
           component="h3"
           sx={{
-            fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3rem' }, // Responsive font size
+            fontSize: { xs: '1.5rem', sm: '2.25rem', md: '3rem' }, // Adjusted responsive font size
             fontWeight: 'bold',
+            marginBottom: { xs: '3px', sm: '5px' }, // Adjusted margin for small screens
           }}
         >
           Ready to Start Your Project?
@@ -31,8 +32,8 @@ const CTASection = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: { xs: '1rem', sm: '1.125rem' }, // Smaller font size for small screens
-            marginBottom: '20px',
+            fontSize: { xs: '0.875rem', sm: '1.125rem' }, // Smaller font size for small screens
+            marginBottom: { xs: '15px', sm: '10px' }, // Adjusted margin for small screens
           }}
         >
           Get in touch with us today and let&apos;s build something amazing together.
@@ -43,7 +44,8 @@ const CTASection = () => {
           href="/contact"
           sx={{
             padding: '10px 24px',
-            fontSize: { xs: '0.875rem', sm: '1rem' }, // Button text size responsiveness
+            fontSize: { xs: '0.75rem', sm: '1rem' }, // Button text size responsiveness
+            borderRadius: '20px', // Added border radius for a softer button look
           }}
         >
           Contact Us Now

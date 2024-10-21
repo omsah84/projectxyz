@@ -18,20 +18,20 @@ export default function Home() {
     <div>
       {/* <Header/> */}
       <HeroSectionComponent />
-      <NewsletterSection />
-      <FeaturesSection />
-      <TestimonialsSection />
-      <PortfolioSection />
-      <BlogSection />
-      <StatisticsSection />
       <AboutSection />
+      <FeaturesSection />
+      <PortfolioSection />
+      <StatisticsSection />
       <AwardsSection />
-      <CTASection />
+      <TestimonialsSection />
+      <BlogSection />
+      <NewsletterSection />
       <FaqsSection />
+      <CTASection />
 
 
-      <FloatingButtons/>
-      <FloatingChatbotButton/>
+      <FloatingButtons />
+      <FloatingChatbotButton />
     </div>
   );
 }

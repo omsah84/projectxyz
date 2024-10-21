@@ -13,12 +13,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // Styled components for the FAQs Section
 const FaqsContainer = styled(Box)(({ theme }) => ({
-  margin:"auto",
+  margin: "auto",
   padding: "40px 20px",
   backgroundColor: "#f9f9f9",
   maxWidth: "85%",
   borderRadius: "8px", // Add rounded corners
-  // boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)", // Soft shadow for depth
   [theme.breakpoints.up("md")]: {
     padding: "30px 30px",
   },
@@ -36,6 +35,15 @@ const FaqsHeading = styled(Typography)(({ theme }) => ({
   fontWeight: theme.typography.h4.fontWeight,
   color: "#333", // Darker color for better contrast
   textAlign: "center",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1.5rem", // Smaller font size for small screens
+  },
+  [theme.breakpoints.up("md")]: {
+    fontSize: "2rem", // Larger font size for medium screens
+  },
+  [theme.breakpoints.up("lg")]: {
+    fontSize: "2.5rem", // Even larger font size for large screens
+  },
 }));
 
 const FaqsSection: React.FC = () => {
@@ -44,59 +52,73 @@ const FaqsSection: React.FC = () => {
   const faqsData = [
     {
       question: "What courses do you offer?",
-      answer: "We offer a diverse range of courses including research methodology, data analysis, freelancing strategies, web development, and programming languages like Python.",
+      answer:
+        "We offer a diverse range of courses including research methodology, data analysis, freelancing strategies, web development, and programming languages like Python.",
     },
     {
       question: "How long do the courses take?",
-      answer: "Course durations vary based on content depth, but most of our courses last between 3 to 6 weeks.",
+      answer:
+        "Course durations vary based on content depth, but most of our courses last between 3 to 6 weeks.",
     },
     {
       question: "Is there a certification upon completion?",
-      answer: "Yes, upon successfully completing a course, students receive a certificate.",
+      answer:
+        "Yes, upon successfully completing a course, students receive a certificate.",
     },
     {
       question: "Can I access the courses from anywhere?",
-      answer: "Absolutely! Our courses are accessible online, meaning you can learn from anywhere with an internet connection.",
+      answer:
+        "Absolutely! Our courses are accessible online, meaning you can learn from anywhere with an internet connection.",
     },
     {
       question: "What payment methods do you accept?",
-      answer: "We accept various payment methods to make the enrollment process convenient.",
+      answer:
+        "We accept various payment methods to make the enrollment process convenient.",
     },
     {
       question: "Do you provide support for course materials?",
-      answer: "Yes, we offer comprehensive support and resources for all enrolled students.",
+      answer:
+        "Yes, we offer comprehensive support and resources for all enrolled students.",
     },
     {
       question: "Are the courses self-paced?",
-      answer: "Most of our courses are designed to be self-paced.",
+      answer:
+        "Most of our courses are designed to be self-paced.",
     },
     {
       question: "What topics are covered in the freelancing course?",
-      answer: "The freelancing course covers essential skills such as proposal writing, client management, and portfolio building.",
+      answer:
+        "The freelancing course covers essential skills such as proposal writing, client management, and portfolio building.",
     },
     {
       question: "Do you offer group discounts?",
-      answer: "Yes, we provide discounts for group enrollments.",
+      answer:
+        "Yes, we provide discounts for group enrollments.",
     },
     {
       question: "Can I get a refund if I am not satisfied with the course?",
-      answer: "Yes, we have a refund policy that allows you to request a full refund within 14 days of enrollment.",
+      answer:
+        "Yes, we have a refund policy that allows you to request a full refund within 14 days of enrollment.",
     },
     {
       question: "How do I get in touch with customer support?",
-      answer: "You can reach our customer support team through our website's contact form or via email.",
+      answer:
+        "You can reach our customer support team through our website's contact form or via email.",
     },
     {
       question: "What are the prerequisites for the courses?",
-      answer: "While most courses are open to everyone, some may have prerequisites based on the content level.",
+      answer:
+        "While most courses are open to everyone, some may have prerequisites based on the content level.",
     },
     {
       question: "Can I take multiple courses at once?",
-      answer: "Yes, you can enroll in multiple courses simultaneously.",
+      answer:
+        "Yes, you can enroll in multiple courses simultaneously.",
     },
     {
       question: "What resources are provided with the courses?",
-      answer: "Each course comes with various resources, including video lectures, downloadable materials, and access to a community forum.",
+      answer:
+        "Each course comes with various resources, including video lectures, downloadable materials, and access to a community forum.",
     },
   ];
 
@@ -106,7 +128,7 @@ const FaqsSection: React.FC = () => {
 
   return (
     <FaqsContainer>
-      <FaqsHeading>Frequently Asked Questions</FaqsHeading>
+      <FaqsHeading sx={{fontWeight:"bold"}}>Frequently Asked Questions</FaqsHeading>
       {faqsData.slice(0, showMore ? faqsData.length : 5).map((faq, index) => (
         <Accordion
           key={index}
@@ -118,6 +140,7 @@ const FaqsSection: React.FC = () => {
             "&:before": {
               display: "none", // Remove default border
             },
+            
           }}
         >
           <AccordionSummary
@@ -130,7 +153,14 @@ const FaqsSection: React.FC = () => {
               "&:hover": { backgroundColor: "#d1d5db" }, // Darker on hover
             }}
           >
-            <Typography variant="h6" sx={{ fontWeight: "bold", color: "#333" }}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: "bold",
+                color: "#333",
+                fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
+              }}
+            >
               {faq.question}
             </Typography>
           </AccordionSummary>
@@ -141,7 +171,13 @@ const FaqsSection: React.FC = () => {
               padding: "16px",
             }}
           >
-            <Typography>{faq.answer}</Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: "0.875rem", sm: "1rem", md: "1.125rem" },
+              }}
+            >
+              {faq.answer}
+            </Typography>
           </AccordionDetails>
         </Accordion>
       ))}
@@ -155,6 +191,7 @@ const FaqsSection: React.FC = () => {
           "&:hover": { backgroundColor: "#303f9f" },
           padding: "10px 20px",
           borderRadius: "8px",
+          fontSize: { xs: "0.875rem", sm: "1rem", md: "1.125rem" }, // Responsive button font size
         }}
       >
         {showMore ? "Show Less" : "Show All"}
