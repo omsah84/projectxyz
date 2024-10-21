@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Grid, Typography, Box } from '@mui/material';
 import CountUp from 'react-countup'; // Import CountUp for running counter
 
@@ -13,8 +13,37 @@ const useStyles = {
 };
 
 const StatisticsSection = () => {
+  const [startCounting, setStartCounting] = useState(false);
+  const sectionRef = useRef(null); // Create a ref for the section
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Check if the section is in view
+        if (entry.isIntersecting) {
+          setStartCounting(true);
+        } else {
+          setStartCounting(false); // Reset the count if it goes out of view
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is in view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current); // Start observing the section
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current); // Clean up observer
+      }
+    };
+  }, [sectionRef]);
+
   return (
-    <section className={useStyles.section}>
+    <section className={useStyles.section} ref={sectionRef}>
       <Typography
         variant="h4"
         component="h2"
@@ -23,11 +52,11 @@ const StatisticsSection = () => {
       >
         Our Achievements in Numbers
       </Typography>
-      <Grid container spacing={0} justifyContent="center"> {/* Removed spacing */}
+      <Grid container spacing={0} justifyContent="center">
         <Grid item xs={12} sm={6} md={3}>
-          <Box className={useStyles.statBox} sx={{ p: 4, textAlign: 'center', margin: 0 }}> {/* No margin */}
+          <Box className={useStyles.statBox} sx={{ p: 4, textAlign: 'center', margin: 0 }}>
             <Typography className={useStyles.statNumber} sx={{ fontSize: { xs: '3rem', md: '4rem' } }}>
-              <CountUp end={120} duration={3} suffix="+" /> {/* Running counter */}
+              {startCounting && <CountUp end={89} duration={3} suffix="+" />}
             </Typography>
             <Typography className={useStyles.statLabel} sx={{ fontSize: { xs: '1rem', md: '1.2rem' } }}>
               Projects Completed
@@ -37,7 +66,7 @@ const StatisticsSection = () => {
         <Grid item xs={12} sm={6} md={3}>
           <Box className={useStyles.statBox} sx={{ p: 4, textAlign: 'center', margin: 0 }}>
             <Typography className={useStyles.statNumber} sx={{ fontSize: { xs: '3rem', md: '4rem' } }}>
-              <CountUp end={50} duration={3} suffix="+" />
+              {startCounting && <CountUp end={50} duration={3} suffix="+" />}
             </Typography>
             <Typography className={useStyles.statLabel} sx={{ fontSize: { xs: '1rem', md: '1.2rem' } }}>
               Happy Clients
@@ -47,7 +76,7 @@ const StatisticsSection = () => {
         <Grid item xs={12} sm={6} md={3}>
           <Box className={useStyles.statBox} sx={{ p: 4, textAlign: 'center', margin: 0 }}>
             <Typography className={useStyles.statNumber} sx={{ fontSize: { xs: '3rem', md: '4rem' } }}>
-              <CountUp end={5} duration={3} suffix="+" />
+              {startCounting && <CountUp end={3} duration={4} suffix="+" />}
             </Typography>
             <Typography className={useStyles.statLabel} sx={{ fontSize: { xs: '1rem', md: '1.2rem' } }}>
               Years in Business
@@ -57,7 +86,7 @@ const StatisticsSection = () => {
         <Grid item xs={12} sm={6} md={3}>
           <Box className={useStyles.statBox} sx={{ p: 4, textAlign: 'center', margin: 0 }}>
             <Typography className={useStyles.statNumber} sx={{ fontSize: { xs: '3rem', md: '4rem' } }}>
-              <CountUp end={10} duration={3} suffix="+" />
+              {startCounting && <CountUp end={2} duration={4} suffix="+" />}
             </Typography>
             <Typography className={useStyles.statLabel} sx={{ fontSize: { xs: '1rem', md: '1.2rem' } }}>
               Countries Served

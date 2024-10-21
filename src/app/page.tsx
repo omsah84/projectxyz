@@ -21,11 +21,11 @@ export default function Home() {
       <TestimonialsSection />
       <PortfolioSection />
       <BlogSection />
-      <AboutSection />
       <StatisticsSection />
+      <AboutSection />
       <AwardsSection />
-      <FaqsSection />
       <CTASection />
+      <FaqsSection />
     </div>
   );
 }

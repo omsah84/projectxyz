@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography, Box } from '@mui/material';
-import Image from 'next/image';
+import { Star, VerifiedUser, Code } from '@mui/icons-material'; // Importing icons from MUI
 
 // Tailwind CSS-like styling
 const useStyles = {
@@ -19,27 +19,21 @@ const AwardsSection = () => {
         variant="h4"
         component="h2"
         className={useStyles.heading}
-        sx={{ marginBottom: { xs: 2, md: 1 }, fontSize: { xs: '2rem', md: '2.5rem' } }}
+        sx={{ marginBottom: { xs: 2, md: 1 }, fontSize: { xs: '2rem', md: '2.5rem', textAlign: 'center' } }}
       >
         Awards & Certifications
       </Typography>
       <Typography
         variant="body1"
         className={useStyles.subheading}
-        sx={{ marginBottom: { xs: 1, md: 2 }, fontSize: { xs: '1rem', md: '1.25rem' } }}
+        sx={{ marginBottom: { xs: 1, md: 2 }, fontSize: { xs: '1rem', md: '1.25rem',textAlign: 'center' } }}
       >
         Recognizing our commitment to excellence
       </Typography>
       <Grid container spacing={4} justifyContent="center">
         <Grid item xs={12} sm={6} md={4}>
-          <Box className={useStyles.awardBox} sx={{ padding: '24px', textAlign: 'center' }}>
-            <Image
-              src="/images/person-working-office.jpg"
-              alt="Award 1"
-              width={100}
-              height={100}
-              className="rounded-full" // Rounded image using Tailwind
-            />
+          <Box className={useStyles.awardBox} sx={{ textAlign: 'center' }}>
+            <Star sx={{ fontSize: 60, color: 'indigo.600' }} /> {/* Star icon for Best Startup */}
             <Typography className={useStyles.awardTitle} sx={{ fontSize: { xs: '1.25rem', md: '1.5rem' } }}>
               Best Startup 2023
             </Typography>
@@ -49,14 +43,8 @@ const AwardsSection = () => {
           </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Box className={useStyles.awardBox} sx={{ padding: '24px', textAlign: 'center' }}>
-            <Image
-              src="/images/person-working-office.jpg"
-              alt="Certification 1"
-              width={100}
-              height={100}
-              className="rounded-full"
-            />
+          <Box className={useStyles.awardBox} sx={{ textAlign: 'center' }}>
+            <VerifiedUser sx={{ fontSize: 60, color: 'indigo.600' }} /> {/* Verified User icon for ISO 9001 */}
             <Typography className={useStyles.awardTitle} sx={{ fontSize: { xs: '1.25rem', md: '1.5rem' } }}>
               ISO 9001 Certified
             </Typography>
@@ -66,14 +54,8 @@ const AwardsSection = () => {
           </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Box className={useStyles.awardBox} sx={{ padding: '24px', textAlign: 'center' }}>
-            <Image
-             src="/images/person-working-office.jpg"
-              alt="Award 2"
-              width={100}
-              height={100}
-              className="rounded-full"
-            />
+          <Box className={useStyles.awardBox} sx={{ textAlign: 'center' }}>
+            <Code sx={{ fontSize: 60, color: 'indigo.600' }} /> {/* Code icon for Top Developer */}
             <Typography className={useStyles.awardTitle} sx={{ fontSize: { xs: '1.25rem', md: '1.5rem' } }}>
               Top Developer 2022
             </Typography>

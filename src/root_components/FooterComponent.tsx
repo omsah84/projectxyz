@@ -46,7 +46,7 @@ const FooterLink = styled(Link)( {
 const FooterComponent: React.FC = () => {
   return (
     <FooterContainer>
-      <Grid container spacing={4}>
+      <Grid container spacing={2}>
         {/* Company Info Section */}
         <Grid item xs={12} sm={6} md={4}>
           <FooterColumn>

@@ -1,18 +1,28 @@
 "use client";
 import React, { useState } from "react";
-import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, styled, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  styled,
+  Button,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // Styled components for the FAQs Section
 const FaqsContainer = styled(Box)(({ theme }) => ({
+  margin:"auto",
   padding: "40px 20px",
   backgroundColor: "#f9f9f9",
+  maxWidth: "85%",
   borderRadius: "8px", // Add rounded corners
-  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)", // Soft shadow for depth
-  [theme.breakpoints.up('md')]: { 
+  // boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)", // Soft shadow for depth
+  [theme.breakpoints.up("md")]: {
     padding: "30px 30px",
   },
-  [theme.breakpoints.up('lg')]: { 
+  [theme.breakpoints.up("lg")]: {
     padding: "30px 60px",
   },
 }));
@@ -22,11 +32,12 @@ const FaqsHeading = styled(Typography)(({ theme }) => ({
   fontSize: theme.typography.h4.fontSize,
   fontWeight: theme.typography.h4.fontWeight,
   color: "#333", // Darker color for better contrast
+  textAlign: "center",
 }));
 
 const FaqsSection: React.FC = () => {
   const [showMore, setShowMore] = useState(false);
-  
+
   const faqsData = [
     {
       question: "What courses do you offer?",
@@ -92,25 +103,57 @@ const FaqsSection: React.FC = () => {
 
   return (
     <FaqsContainer>
-      <FaqsHeading>
-        Frequently Asked Questions
-      </FaqsHeading>
+      <FaqsHeading>Frequently Asked Questions</FaqsHeading>
       {faqsData.slice(0, showMore ? faqsData.length : 5).map((faq, index) => (
-        <Accordion key={index} sx={{ marginBottom: "10px", border: "1px solid #e0e0e0", borderRadius: "8px" }}>
+        <Accordion
+          key={index}
+          sx={{
+            marginBottom: "10px",
+            border: "1px solid #e0e0e0",
+            borderRadius: "8px",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+            "&:before": {
+              display: "none", // Remove default border
+            },
+          }}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon sx={{ color: "#3f51b5" }} />}
             aria-controls={`panel${index + 1}-content`}
             id={`panel${index + 1}-header`}
-            sx={{ "&:hover": { backgroundColor: "#f0f0f0" } }} // Hover effect
+            sx={{
+              backgroundColor: "#e0e7ff", // Light blue background for header
+              borderRadius: "8px",
+              "&:hover": { backgroundColor: "#d1d5db" }, // Darker on hover
+            }}
           >
-            <Typography variant="h6" className="font-semibold">{faq.question}</Typography>
+            <Typography variant="h6" sx={{ fontWeight: "bold", color: "#333" }}>
+              {faq.question}
+            </Typography>
           </AccordionSummary>
-          <AccordionDetails sx={{ backgroundColor: "#fafafa", borderRadius: "0 0 8px 8px" }}>
+          <AccordionDetails
+            sx={{
+              backgroundColor: "#fafafa",
+              borderRadius: "0 0 8px 8px",
+              padding: "16px",
+            }}
+          >
             <Typography>{faq.answer}</Typography>
           </AccordionDetails>
         </Accordion>
       ))}
-      <Button onClick={handleShowMore} variant="contained" sx={{ marginTop: "20px", backgroundColor: "#3f51b5", '&:hover': { backgroundColor: "#303f9f" } }}>
+      <Button
+        onClick={handleShowMore}
+        variant="contained"
+        sx={{
+          marginTop: "20px",
+          backgroundColor: "#3f51b5",
+          color: "white",
+          "&:hover": { backgroundColor: "#303f9f" },
+          padding: "10px 20px",
+          borderRadius: "8px",
+        }}
+      >
         {showMore ? "Show Less" : "Show All"}
       </Button>
     </FaqsContainer>
