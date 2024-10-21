@@ -5,7 +5,7 @@ import { Card, CardContent, Typography, Avatar, Grid } from '@mui/material';
 const useStyles = {
   section: 'py-16 px-4 bg-white text-center',
   gridItem: 'w-full p-4',
-  avatar: 'w-16 h-16 mb-4 mx-auto',
+  avatar: 'w-16 h-16 mb-4', // Removed mx-auto to allow custom centering
 };
 
 const testimonials = [
@@ -32,22 +32,40 @@ const testimonials = [
 const TestimonialsSection = () => {
   return (
     <section className={useStyles.section}>
-      <Typography variant="h4" component="h2" className="mb-8 font-bold text-gray-800" sx={{textAlign:"center"}}>
+      <Typography variant="h4" component="h2" className="mb-8 font-bold text-gray-800" sx={{ textAlign: "center" }}>
         What Our Clients Say
       </Typography>
-      <Grid container spacing={4} className="flex justify-center" sx={{padding:"20px"}}>
+      <Grid container spacing={4} className="flex justify-center" sx={{ padding: "20px" }}>
         {testimonials.map((testimonial, index) => (
           <Grid item xs={12} sm={6} md={4} className={useStyles.gridItem} key={index}>
             <Card elevation={3} className="bg-gray-50 p-6 flex flex-col items-center">
-              <Avatar src={testimonial.avatarUrl} alt={testimonial.name} className={useStyles.avatar} />
+              {/* Centering Avatar */}
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                <Avatar src={testimonial.avatarUrl} alt={testimonial.name} className={useStyles.avatar} />
+              </div>
               <CardContent className="text-center">
-                <Typography variant="body1" component="p" className="italic text-gray-600 mb-4">
-                &#34; {testimonial.review}&#34;
+                <Typography
+                  variant="body1"
+                  component="p"
+                  className="italic text-gray-600 mb-4"
+                  sx={{ textAlign: "center" }} // Center align text
+                >
+                  &#34; {testimonial.review} &#34;
                 </Typography>
-                <Typography variant="h6" component="h3" className="font-semibold text-gray-700">
+                <Typography
+                  variant="h6"
+                  component="h3"
+                  className="font-semibold text-gray-700"
+                  sx={{ textAlign: "center" }} // Center align text
+                >
                   {testimonial.name}
                 </Typography>
-                <Typography variant="body2" component="p" className="text-gray-500">
+                <Typography
+                  variant="body2"
+                  component="p"
+                  className="text-gray-500"
+                  sx={{ textAlign: "center" }} // Center align text
+                >
                   {testimonial.role}
                 </Typography>
               </CardContent>

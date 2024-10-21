@@ -86,9 +86,9 @@ const AnimatedOfferingCard: React.FC<AnimatedOfferingCardProps> = ({ title, desc
   const handleScroll = () => {
     const scrollY = window.scrollY;
     if (scrollY > lastScrollY) {
-      setScrollDirection('up'); // Scrolling down
+      setScrollDirection('down'); // Scrolling down
     } else {
-      setScrollDirection('down'); // Scrolling up
+      setScrollDirection('up'); // Scrolling up
     }
     setLastScrollY(scrollY);
   };

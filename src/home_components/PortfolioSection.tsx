@@ -1,13 +1,11 @@
 import React from 'react';
 import { Card, CardMedia, CardContent, Typography, Grid, Button } from '@mui/material';
-// import { styled } from '@mui/system';
 
 // Tailwind CSS for styling
 const useStyles = {
   section: 'py-16 px-4 bg-gray-50 text-center',
   gridItem: 'w-full p-4',
-  cardMedia: 'h-48 w-full object-cover',
-  button: 'mt-4 bg-indigo-600 text-white hover:bg-indigo-500',
+  button: 'mt-4 text-white hover:bg-indigo-500', // Hover effect for the button
 };
 
 // Portfolio data
@@ -30,39 +28,102 @@ const portfolioItems = [
     imageUrl: 'https://source.unsplash.com/random?analytics',
     link: '#',
   },
+  {
+    title: 'Interior Design Website',
+    description: 'A sleek website showcasing modern interior design ideas and portfolio.',
+    imageUrl: 'https://source.unsplash.com/random?interior',
+    link: '#',
+  },
+  {
+    title: 'Freelancing Development',
+    description: 'A platform for freelancing services, including development, design, and content creation.',
+    imageUrl: 'https://source.unsplash.com/random?freelancing',
+    link: '#',
+  },
+  {
+    title: 'Research Paper Portal',
+    description: 'A comprehensive platform for research paper writing and submission services.',
+    imageUrl: 'https://source.unsplash.com/random?research',
+    link: '#',
+  },
 ];
 
 const PortfolioSection = () => {
   return (
-    <section className={useStyles.section} >
-      <Typography variant="h4" component="h2" className="mb-8 font-bold text-gray-800" sx={{textAlign:"center"}}>
+    <section className={useStyles.section}>
+      <Typography variant="h4" component="h2" className="mb-8 font-bold text-gray-800" sx={{ textAlign: 'center' }}>
         Our Work
       </Typography>
-      <Grid container spacing={4} className="flex justify-center" sx={{padding:"20px"}}>
+      <Grid container spacing={4} className="flex justify-center" sx={{ padding: '20px' }}>
         {portfolioItems.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} className={useStyles.gridItem} key={index}>
-            <Card elevation={3}>
-              <CardMedia
-                component="img"
-                alt={item.title}
-                image={item.imageUrl}
-                className={useStyles.cardMedia}
-              />
-              <CardContent>
-                <Typography variant="h6" component="h3" className="font-semibold text-gray-700">
+            <Card
+              elevation={3}
+              sx={{
+                backgroundColor: 'white',
+                padding: '16px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Added transition for hover effect
+                '&:hover': {
+                  transform: 'scale(1.05)', // Scale effect on hover
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)', // Shadow effect on hover
+                },
+              }}
+            >
+              {/* Centering CardMedia */}
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                <CardMedia
+                  component="img"
+                  alt={item.title}
+                  image={item.imageUrl}
+                  sx={{ height: 200, width: 'auto', maxWidth: '100%', margin: '0 auto' }} // Center and resize the image
+                />
+              </div>
+              <CardContent className="text-center">
+                <Typography
+                  variant="h6"
+                  component="h3"
+                  className="font-semibold text-gray-700"
+                  sx={{ textAlign: 'center' }} // Center align text
+                >
                   {item.title}
                 </Typography>
-                <Typography variant="body2" component="p" className="text-gray-600 mb-4">
+                <Typography
+                  variant="body2"
+                  component="p"
+                  className="text-gray-600 mb-4"
+                  sx={{ textAlign: 'center' }} // Center align text
+                >
                   {item.description}
                 </Typography>
-                <Button href={item.link} variant="contained" className={useStyles.button}>
-                  View Case Study
-                </Button>
+                <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                  <Button
+                    href={item.link}
+                    variant="outlined"
+                    className={useStyles.button}
+                    sx={{ width: 'fit-content', margin: '0 auto' }} // Fit button width to content and center it
+                  >
+                    View Case Study
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </Grid>
         ))}
       </Grid>
+      {/* See More Button */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '.5rem' }}>
+        <Button
+          variant="contained"
+          href="/services"
+          className={useStyles.button}
+          sx={{ width: 'fit-content' }} // Button width fits content
+        >
+          See More Works
+        </Button>
+      </div>
     </section>
   );
 };
