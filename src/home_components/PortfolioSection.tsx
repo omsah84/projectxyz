@@ -13,51 +13,51 @@ const portfolioItems = [
   {
     title: 'E-commerce Platform',
     description: 'A full-featured e-commerce platform with custom-built checkout process and payment integration.',
-    imageUrl: 'https://source.unsplash.com/random?ecommerce',
+    imageUrl: '/images/research_development_hero.jpg',
     link: '#',
   },
   {
     title: 'Mobile Banking App',
     description: 'A secure mobile banking application with a modern UI and real-time transaction tracking.',
-    imageUrl: 'https://source.unsplash.com/random?banking',
+    imageUrl: '/images/research_development_hero.jpg',
     link: '#',
   },
   {
     title: 'SaaS Analytics Tool',
     description: 'An advanced SaaS platform for data analytics with real-time reporting and customizable dashboards.',
-    imageUrl: 'https://source.unsplash.com/random?analytics',
+    imageUrl: '/images/research_development_hero.jpg',
     link: '#',
   },
  
   {
     title: 'Freelancing Development',
     description: 'A platform for freelancing services, including development, design, and content creation.',
-    imageUrl: 'https://source.unsplash.com/random?freelancing',
+    imageUrl: '/images/research_development_hero.jpg',
     link: '#',
   },
   {
     title: 'API Development',
     description: 'An API development service providing secure and scalable solutions for businesses.',
-    imageUrl: 'https://source.unsplash.com/random?api',
+    imageUrl: '/images/research_development_hero.jpg',
     link: '#',
   },
   {
     title: 'Research Paper Portal',
     description: 'A comprehensive platform for research paper writing and submission services.',
-    imageUrl: 'https://source.unsplash.com/random?research',
+    imageUrl: '/images/research_development_hero.jpg',
     link: '#',
   },
 
   {
     title: 'Interior Design Website',
     description: 'A sleek website showcasing modern interior design ideas and portfolio.',
-    imageUrl: 'https://source.unsplash.com/random?interior',
+    imageUrl: '/images/research_development_hero.jpg',
     link: '#',
   },
   {
     title: 'Content Writing Service',
     description: 'High-quality content writing services for blogs, websites, and marketing materials.',
-    imageUrl: 'https://source.unsplash.com/random?contentwriting',
+    imageUrl: '/images/research_development_hero.jpg',
     link: '#',
   },
 ];
