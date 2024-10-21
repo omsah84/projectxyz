@@ -1,13 +1,14 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, Typography, Grid, Button, Box } from '@mui/material';
 import { styled } from '@mui/system';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer'; // Importing useInView
 
 // Custom styling using Tailwind CSS
 const useStyles = {
   section: 'py-16 px-4 bg-gray-100 text-center',
   cardContainer: 'max-w-sm mx-auto transform transition-transform duration-300 hover:scale-105 hover:shadow-xl',
-  icon: 'w-16 h-16 mb-4 mx-auto text-indigo-500',
   gridItem: 'w-full p-4',
 };
 
@@ -46,27 +47,19 @@ const FeaturesSection = () => {
       <Grid container spacing={4} className="flex justify-center" sx={{ padding: "20px" }}>
         {features.map((feature, index) => (
           <Grid item xs={12} sm={6} md={3} className={useStyles.gridItem} key={index}>
-            <Card className={useStyles.cardContainer} elevation={3} sx={{ transition: 'transform 0.3s ease-in-out',
-            '&:hover': { transform: 'scale(1.1)' }}}>
-              <ServiceIcon>{/* You can use an icon component here */}🚀</ServiceIcon>
-              <CardContent sx={{ textAlign: 'center' }}>
-                <Typography variant="h6" component="h3" className="font-semibold text-gray-700">
-                  {feature.title}
-                </Typography>
-                <Typography variant="body2" component="p" className="text-gray-600">
-                  {feature.description}
-                </Typography>
-              </CardContent>
-            </Card>
+            <AnimatedOfferingCard
+              title={feature.title}
+              description={feature.description}
+            />
           </Grid>
         ))}
       </Grid>
-      
+
       {/* Centering the Button */}
       <Box sx={{ textAlign: 'center', mt: 1 }}>
-        <Button 
-          variant="contained" 
-          color="primary" 
+        <Button
+          variant="contained"
+          color="primary"
           href="/services"
           sx={{
             transition: 'transform 0.3s ease-in-out',
@@ -77,6 +70,66 @@ const FeaturesSection = () => {
         </Button>
       </Box>
     </section>
+  );
+};
+
+// Define the props interface
+interface AnimatedOfferingCardProps {
+  title: string;
+  description: string;
+}
+
+const AnimatedOfferingCard: React.FC<AnimatedOfferingCardProps> = ({ title, description }) => {
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    if (scrollY > lastScrollY) {
+      setScrollDirection('up'); // Scrolling down
+    } else {
+      setScrollDirection('down'); // Scrolling up
+    }
+    setLastScrollY(scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
+  const { ref, inView } = useInView({
+    threshold: 0.1, // Trigger animation when 10% of the card is visible
+    triggerOnce: false, // Animate every time the card comes into view
+  });
+
+  // Define animation variants for the scroll effect
+  const variants = {
+    hidden: { opacity: 0, y: scrollDirection === 'down' ? 30 : -30 }, // Scroll down hides the card below
+    visible: { opacity: 1, y: 0 }, // Final state (visible)
+  };
+
+  return (
+    <motion.div
+      ref={ref} // Attach the ref to the motion.div
+      variants={variants}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"} // Animate based on visibility
+      transition={{ duration: 0.5 }}
+      className={useStyles.cardContainer}
+    >
+      <Card elevation={3}>
+        <ServiceIcon>{/* You can use an icon component here */}🚀</ServiceIcon>
+        <CardContent sx={{ textAlign: 'center' }}>
+          <Typography variant="h6" component="h3" className="font-semibold text-gray-700">
+            {title}
+          </Typography>
+          <Typography variant="body2" component="p" className="text-gray-600">
+            {description}
+          </Typography>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 };
 
