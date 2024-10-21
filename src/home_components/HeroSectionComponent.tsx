@@ -24,7 +24,7 @@ const HeroContainer = styled(Box)(({ theme }) => ({
         padding: "70px 20px", // Regular padding for larger screens
     },
     [theme.breakpoints.down("sm")]: {
-        padding: "80px 15px", // Regular padding for larger screens
+        padding: "80px 20px", // Regular padding for larger screens
     },
 }));
 

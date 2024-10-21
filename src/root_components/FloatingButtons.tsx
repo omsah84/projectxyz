@@ -11,7 +11,7 @@ const FloatingButtons = () => {
       sx={{
         position: 'fixed',
         right: 0, // Set to 0 to align with the right edge of the viewport
-        top: '50%',
+        top: '74%',
         transform: 'translateY(-50%)',
         display: 'flex',
         flexDirection: 'column',
