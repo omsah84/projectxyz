@@ -25,6 +25,9 @@ const FaqsContainer = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {
     padding: "30px 60px",
   },
+  [theme.breakpoints.down("md")]: {
+    maxWidth: "100%",
+  },
 }));
 
 const FaqsHeading = styled(Typography)(({ theme }) => ({
