@@ -78,7 +78,7 @@ const PortfolioSection = () => {
       </Typography>
       <Grid container spacing={4} justifyContent="center">
         {portfolioItems.map((item, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid item xs={12} sm={6} md={5} lg={4} xl={3}  key={index}>
             <Card
               elevation={3}
               sx={{

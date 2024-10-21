@@ -55,7 +55,7 @@ const FeaturesSection = () => {
       </Typography>
       <Grid container spacing={4} justifyContent="center">
         {features.map((feature, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
             <AnimatedOfferingCard
               title={feature.title}
               description={feature.description}
