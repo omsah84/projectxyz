@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
+import { Typewriter } from 'react-simple-typewriter';
 import { Box, Typography, styled, Button, Stack } from "@mui/material";
 
 
@@ -67,7 +68,17 @@ const HeroSectionComponent: React.FC = () => {
             <HeroContent>
                 {/* Heading Text */}
                 <Typography variant="h3" component="h1" gutterBottom>
-                    Unlock Your <HighlightedText>Potential</HighlightedText> in Research & Development
+                    Unlock Your <HighlightedText>Potential</HighlightedText> in 
+                    <Typewriter
+                        words={[' Research & Development', ' Software Solutions', ' Freelance Services', ' AI Innovation', ' Full-Stack Development']
+                        }
+                        loop={true}
+                        cursorStyle='_'
+                        typeSpeed={70}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                    />
+
                 </Typography>
 
                 {/* Subheading */}
