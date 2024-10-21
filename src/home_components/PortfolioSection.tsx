@@ -28,12 +28,7 @@ const portfolioItems = [
     imageUrl: 'https://source.unsplash.com/random?analytics',
     link: '#',
   },
-  {
-    title: 'Interior Design Website',
-    description: 'A sleek website showcasing modern interior design ideas and portfolio.',
-    imageUrl: 'https://source.unsplash.com/random?interior',
-    link: '#',
-  },
+ 
   {
     title: 'Freelancing Development',
     description: 'A platform for freelancing services, including development, design, and content creation.',
@@ -41,9 +36,28 @@ const portfolioItems = [
     link: '#',
   },
   {
+    title: 'API Development',
+    description: 'An API development service providing secure and scalable solutions for businesses.',
+    imageUrl: 'https://source.unsplash.com/random?api',
+    link: '#',
+  },
+  {
     title: 'Research Paper Portal',
     description: 'A comprehensive platform for research paper writing and submission services.',
     imageUrl: 'https://source.unsplash.com/random?research',
+    link: '#',
+  },
+
+  {
+    title: 'Interior Design Website',
+    description: 'A sleek website showcasing modern interior design ideas and portfolio.',
+    imageUrl: 'https://source.unsplash.com/random?interior',
+    link: '#',
+  },
+  {
+    title: 'Content Writing Service',
+    description: 'High-quality content writing services for blogs, websites, and marketing materials.',
+    imageUrl: 'https://source.unsplash.com/random?contentwriting',
     link: '#',
   },
 ];
@@ -56,7 +70,7 @@ const PortfolioSection = () => {
       </Typography>
       <Grid container spacing={4} className="flex justify-center" sx={{ padding: '20px' }}>
         {portfolioItems.map((item, index) => (
-          <Grid item xs={12} sm={6} md={4} className={useStyles.gridItem} key={index}>
+          <Grid item xs={12} sm={6} md={3} className={useStyles.gridItem} key={index}>
             <Card
               elevation={3}
               sx={{
@@ -78,7 +92,7 @@ const PortfolioSection = () => {
                   component="img"
                   alt={item.title}
                   image={item.imageUrl}
-                  sx={{ height: 200, width: 'auto', maxWidth: '100%', margin: '0 auto' }} // Center and resize the image
+                  sx={{ height: 150, width: 'auto', maxWidth: '100%', margin: '0 auto' }} // Center and resize the image
                 />
               </div>
               <CardContent className="text-center">
